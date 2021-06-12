@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Honestly</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row top-user" style="margin-top:1%; text-align-last: right;" >
+        <p class="text text-right">
+            <% if user_signed_in? %>     
+              <%= link_to "#{current_user.email}", workspace_path(current_user.id), class:"link-primary" %> 
+              <%= link_to "Log Out", destroy_user_session_path, :method => :delete, class:"link-danger", style:"margin-left:1%"  %> 
+            <% end %>  
+        </p>
+    </div>
+
+  <% if flash[:notice] %>
+      <p class="notice alert-info"><%= notice %></p>
+  <% end %>
+    <% if flash[:alert] %>
+      <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+    <%= yield %>
+    </div>
+ 
+  </body>
+</html>

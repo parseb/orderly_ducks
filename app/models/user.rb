@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #validates_presence_of :email, :name, :phone
+  validates_presence_of :email, :name
 
   before_create :default_avatar
+  has_many :sessions
+
 
 
   def default_avatar

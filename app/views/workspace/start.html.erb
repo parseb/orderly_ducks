@@ -4,13 +4,47 @@
         <div class="col-4" >
           <div class="card" style="height: 100%">
             <div class="card-body">
-              Panel for creating a new session
-              Panel for creating a new session
-              Panel for creating a new session
-              Panel for creating a new session
-              Panel for creating a new session
-              Panel for creating a new session
+                <h6 style="color:goldenrod; font-weight: bold;">Create Session</h6>
+
+              <%= form_for @session, url:sessions_path, action:'post'  do |f|%>
+                  <div class="field" style="margin: 1%;">
+                    <%= f.label :title, class:"form-label", style:"color:dodgerblue" %><br />
+                    <%= f.text_field :title, autofocus: true, class:"form-control" %>
+                  </div>
+                  <div class="field" style="margin: 1%;">
+                    <%= f.label :agenda, class:"form-label", style:"color:dodgerblue" %><br />
+                    <%= f.text_area :agenda, autofocus: true, class:"form-control", placeholder:"item1; item2; questions" %>
+                  </div>
+
+                  <!-- #@refact range - cannot start or end before Time.now -->
+                  <!-- #@refact range - datetime format - on location - dd/mm/yyyy default -->
+
+                  <div class="field" style="margin: 1%;">
+                    <%= f.label :s_time, 'Starting at:', class:"form-label", style:"color:dodgerblue" %><br />
+                    <%= f.datetime_local_field :s_time, autofocus: true, class:"form-control" %>
+                  </div>
+                  <div class="field" style="margin: 1%;">
+                    <%= f.label :e_time, 'Ending at:', class:"form-label", style:"color:dodgerblue" %><br />
+                    <%= f.datetime_local_field :e_time, autofocus: true, class:"form-control" %>
+                  </div>
+
+                  <!-- #@refact add invite user / groups? - user list: invite list -->
+                  
+                  <div class="actions" style="margin: 1%;" >
+                    <%= f.submit "Create",  class:"btn btn-primary", style:"background-color:dodgerblue;color:white;font-weight:bold;margin-top:10px;margin-bottom:8px; width:100%" %>
+                  </div>
+              <% end %>
+
+
             </div>
+
+            <hr>
+
+            <div class="card-body">
+              <h6 style="color:goldenrod; font-weight: bold;">Add Session</h6>
+              ||||||||||||||||||||||||||||||||  add ->
+            </div>
+
           </div>
         </div>
         <div class="col-8">

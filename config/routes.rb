@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '*path', to: 'home#landing' #revise
 
+  resource :sessions
+
   #devise_for :installs
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

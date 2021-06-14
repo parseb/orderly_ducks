@@ -4,9 +4,17 @@ class WorkspaceController < ApplicationController
 
     def start
         @session= Session.new  
+        @u= current_user.id
+        @sessions= Session.where(user_id:@u)
+       
     end
 
 
+    def addusertosessionfrominvite
+        #params[:auth]
+        #find sessin where auth == 
+        #if current_user.id not in session.users -> add user -> redirect 
+    end
     private
 
     def authenticate_user!

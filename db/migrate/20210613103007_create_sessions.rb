@@ -8,8 +8,14 @@ class CreateSessions < ActiveRecord::Migration[6.1]
       t.text :agenda
       t.text :transcript
       t.text :state
-      t.string :accesscode
-      t.references :user, index: true
+      t.string :accesscode, precision: 6
+
+
+      #t.references :user
+      t.integer :created_by
+      t.integer :moderator
+
+      t.string :invited  #@refact
 
       t.timestamps
     end

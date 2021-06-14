@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates_presence_of :email, :name
 
   before_create :default_avatar
-  has_many :sessions
+  has_and_belongs_to_many :sessions
+  has_many :peers
 
 
 

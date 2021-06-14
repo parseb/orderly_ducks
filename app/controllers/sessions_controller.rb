@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
     def create
         @session= Session.create(session_params)
         uid=current_user.id
-        @session.user_id=uid
+        @session.created_by =uid #s
+        @session.moderator =uid #default
+        @session.users << current_user
         @session.save!
         redirect_to workspace_path(uid)
     end

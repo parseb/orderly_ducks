@@ -1,16 +1,45 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+.btn-session {
+    width:49.5%;
+    border-radius: 0px !important;
+    color: white !important;
+}
+
+.bblue{
+    background-color: #SF5F5EF !important;
+}
+
+.cgreen {
+    background-color: #B5243B !important;
+}
+
+.dblue {
+    background-color: #1679A2 !important;
+}
+.grey {
+    background-color: #F5F5EF !important;
+}
+
+.orange {
+    background-color: #D14914 ! important;
+}
+
+
+body {
+   background: #F5F5EF !important;
+}
+
+.whitetext {
+    color: cornsilk !important
+}
+.orangetext {
+    color:#D14914 !important
+}
+
+.pillitem {
+    
+    background-color: #4ECAC4 !important;
+    font-size:14px;
+    line-height: 14px !important
+}
 

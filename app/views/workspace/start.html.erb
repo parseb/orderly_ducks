@@ -49,27 +49,50 @@
         </div>
         <div class="col-8">
           <div class="card" style="height: 100%">
-            <div class="card-body" style> 
-              
-            <p>
-              Here will be a history of previous sessions with links _in 1 hour <br>
-              Here will be a history of previous sessions with links _in 5 minutes | Join <br>
-              Here will be a history of previous sessions with links _one hour ago <br>
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-              Here will be a history of previous sessions with links
-            </p>
-             
-           </div>
-      </div>
-        </div>
-    </div>
-    <div class="row">
+            <div class="card-body"> 
+             <% @sessions.each do |session| %>
+             <div class="card text-center bblue" style="margin: 2px auto; border-radius:0px">
+              <div class="card-body">
+                <h5 class="card-title orangetext"><%= session.title %></h5>
+                <p class="card-text">
+                  <%= itempills(session.agenda) %> 
+                </p>
+                <a href="#" class="btn btn-session dblue">Preview</a>
+                <a href="#" class="btn btn-session cgreen">Join</a>
+              </div>
+              <div class="card-footer">
+                <%=  futurepast(session.s_time) %>
+              </div>
+            </div>
 
-    </div>
-</div>
+              <% end %>
+            </div>
+              
+
+          </div>
+        </div>
+      </div>
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  x= document.querySelector('.alert');
+  function hideNotice(x) { if(x) { setInterval(function() {x.style.display = "none";}, 5000); }}
+  hideNotice(x);
+</script>

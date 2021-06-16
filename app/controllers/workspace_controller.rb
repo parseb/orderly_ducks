@@ -5,7 +5,7 @@ class WorkspaceController < ApplicationController
     def start
         @session= Session.new  
         @u= current_user.id
-        @sessions= Session.where(user_id:@u)
+        @sessions= current_user.sessions
        
     end
 

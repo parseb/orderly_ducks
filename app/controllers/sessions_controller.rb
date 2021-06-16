@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
         @session.moderator =uid #default
         @session.users << current_user
         @session.save!
+        flash[:success] =  "Done!"
         redirect_to workspace_path(uid)
     end
 

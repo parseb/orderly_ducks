@@ -18,12 +18,12 @@
       <div class="row top-user" style="margin-top:1%; " >
          
           <div class="col-3"> 
-          <% if !isonlanding?%>
-            <%=image_tag 'honestly.png', :style => "width:50%" %> 
+          <% if !isonlanding? %>
+            <%=image_tag 'honestly.png', :style => "width:136px" %> 
           <% end %>
           </div>
           <div class="col-9">
-            <p class="text" style="text-align-last: right; width:100%; margin: 0 auto">
+            <p class="text" style="text-align-last: right; width:100%; margin: 0 auto; padding-top:5px">
               <% if user_signed_in? %> 
               <%= link_to current_user.name, workspace_path(current_user.id), class:'btn btn-outline-primary' %>  
               
@@ -31,7 +31,7 @@
                <% end %>  
             </p>
           </div>
-       
+       <hr class="dblue">
     </div>
 
  

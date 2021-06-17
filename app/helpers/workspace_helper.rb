@@ -14,4 +14,10 @@ module WorkspaceHelper
     
         raw("<ul class='nav nav-pills'>#{html} </ul>" )##@refact -user input as html
     end
+
+
+    def isjoinable?(session)
+        session.s_time - Time.now < 50000 ? true : false ##@refact - time til join is viable  
+        
+    end
 end

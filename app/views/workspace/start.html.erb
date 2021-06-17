@@ -58,7 +58,10 @@
                   <%= itempills(session.agenda) %> 
                 </p>
                 <a href="#" class="btn btn-session dblue">Preview</a>
-                <a href="#" class="btn btn-session cgreen">Join</a>
+                <% if isjoinable?(session) %>
+                  <a href="#" class="btn btn-session cgreen">Join</a>
+                  <%= link_to "Join", showdowns_path(session.showddown), class:"btn, btn-sessions cgreen"  %>
+                <% end %>
               </div>
               <div class="card-footer">
                 <%=  futurepast(session.s_time) %>

@@ -1,12 +1,17 @@
 class WorkspaceController < ApplicationController
     before_action :authenticate_user!
-    before_action :session_params, only: :create_session
+    
 
     def start
         @session= Session.new  
         @u= current_user.id
         @sessions= current_user.sessions
        
+    end
+
+    def joins
+        @join_showdown= Showdown.find(params[:id])
+        redirect_to showdown_path(@join_showdown)
     end
 
 

@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
@@ -12,10 +12,13 @@ import 'bootstrap/dist/js/bootstrap';
 //import "../stylesheets/application";
 import "bootstrap/dist/css/bootstrap";
 //import "jquery"
+//@import "@hotwired/turbo-rails"
+//import "channels"
 
 Rails.start()
-Turbolinks.start()
 ActiveStorage.start()
 
 const images = require.context('../images',true)
 
+
+import "controllers"

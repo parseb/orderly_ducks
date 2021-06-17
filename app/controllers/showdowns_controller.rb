@@ -1,0 +1,2 @@
+class ShowdownsController < ApplicationController
+end

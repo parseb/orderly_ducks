@@ -18,7 +18,9 @@
       <div class="row top-user" style="margin-top:1%; " >
          
           <div class="col-3"> 
+          <% if !isonlanding?%>
             <%=image_tag 'honestly.png', :style => "width:50%" %> 
+          <% end %>
           </div>
           <div class="col-9">
             <p class="text" style="text-align-last: right; width:100%; margin: 0 auto">

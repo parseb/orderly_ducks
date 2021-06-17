@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :showdowns
+
   devise_for :users
   root to: "home#landing"
 
@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   get '*path', to: 'home#landing' #revise
 
-  resource :sessions
+  resources :sessions
+  resources :showdowns
+
+  #resources :users
 
   #devise_for :installs
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

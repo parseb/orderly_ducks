@@ -9,7 +9,7 @@ class CreateShowdowns < ActiveRecord::Migration[6.1]
       t.string :state3
       t.text :chat
       t.belongs_to :session, null: false, foreign_key: true
-      t.text :present 
+      t.text :presence, array: true, default: []
 
       t.timestamps
     end

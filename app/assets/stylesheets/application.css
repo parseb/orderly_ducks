@@ -1,20 +1,36 @@
 
 .btn-session {
-    width:49.5%;
+    display: inline-block !important;
     border-radius: 0px !important;
     color: white !important;
+    width: 32.1%
+    
+}
+
+.timing {
+  color: var(--primary)
+}
+
+.container-workspace {
+  border: 2px solid var(--primary) !important;
 }
 
 .bblue{
     background-color: #FCFBE3 !important;
+    color:whitesmoke !important;
+    border-radius: 0px !important
 }
 
 .cgreen {
     background-color: #B5243B !important;
+    color:whitesmoke !important;
+    border-radius: 0px !important
 }
 
 .dblue {
     background-color: #1679A2 !important;
+    color:whitesmoke !important;
+    border-radius: 0px !important
 }
 .grey {
     background-color: #F5F5EF !important;
@@ -25,9 +41,17 @@
 }
 
 .purple {
-    background-color: #342551;
+    background-color: #342551 !important;
+    color:whitesmoke !important;
+    border-radius: 0px !important
 }
 
+.showdowntitle {
+  color: dodgerblue;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 200%;
+  font-weight:bolder
+}
 
 body {
    background: #F5F5EF !important;
@@ -36,15 +60,74 @@ body {
 .whitetext {
     color: cornsilk !important
 }
-.orangetext {
-    color:#D14914 !important
+.purpletext {
+    color:var(--primary) !important
 }
 
 .pillitem {
     
     background-color: #4ECAC4 !important;
     font-size:14px;
-    line-height: 14px !important
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 3px;
+    border-radius: 25px !important;
+}
+
+.pillitem:hover {
+  color: #D14914;
+  font-weight: bold
+}
+
+.invited-item {
+  border-radius: 20px !important;
+  border-width: 3px !important;
+  margin: 3px;
+}
+
+.present-item {
+  border-radius: 20px !important;
+  margin: 3px !important;
+  border-width: 3px;
+}
+
+.invited-group {
+  border: 3px solid var(--gray);
+  margin: 5px;
+  padding: 2px;
+  align-items: center
+}
+
+.present-group {
+  border: 3px solid var(--green);
+  margin: 5px;
+  padding: 2px;
+  align-items: center
+}
+
+.session-tags {
+  border-radius: 25px !important;
+  margin: 0 auto;
+  align-items: center !important
+  
+
+}
+
+
+
+.listtitle-invited {
+  color:var(--gray);
+  margin-left:5px;
+  font-weight: bold;
+  font-size: 18px;
+
+}
+
+.listtitle-present {
+  color: var(--green);
+  margin-left:5px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 

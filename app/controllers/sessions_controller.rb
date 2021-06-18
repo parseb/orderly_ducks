@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     before_action :session_params, only: [:create, :edit, :destroy]
+    before_action :authenticate_user!
 
     def new
         #in workspace
@@ -29,4 +30,12 @@ class SessionsController < ApplicationController
         params.require(:session).permit(:title,:s_time,:e_time,:agenda,:transcript,:state,:aceess_code,:user_id)
     end
 
+    def authenticate_user!
+        if user_signed_in?
+        #thisspacecouldbeuseful
+        else
+            redirect_to new_user_session_path, 
+            notice: "Found the Log In form for you." 
+        end
+    end
 end

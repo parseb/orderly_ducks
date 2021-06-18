@@ -6,14 +6,14 @@ module WorkspaceHelper
         datetime < Time.now ? x  : y      
     end
 
-    def itempills(items)
-        html=""
-        items.split(";").each do |i|   ##@refact temp
-        html << "<li class='nav-item'> <a class='nav-link active pillitem' style='border-radius:25px' href='#FollowTag'>#{i.to_s}</a>  </li>"
-        end
+    # def itempills(items)
+    #     html=""
+    #     items.split(";").each do |i|   ##@refact temp
+    #     html << "<li class='nav-item'> <a class='nav-link active pillitem' style='border-radius:25px' href='#FollowTag'>#{i.to_s}</a>  </li>"
+    #     end
     
-        raw("<ul class='nav nav-pills'>#{html} </ul>" )##@refact -user input as html
-    end
+    #     raw("<ul class='nav nav-pills'>#{html} </ul>" )##@refact -user input as html
+    # end   #@@refact obsolete
 
 
     def isjoinable?(session)

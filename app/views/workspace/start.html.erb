@@ -1,5 +1,5 @@
 
-<div class="container" style="border:2px solid #4ECAC4">
+<div class="container container-workspace">
     <div class="row" style="height: 80%">
         <div class="col-4" >
           <div class="card" style="height: 100%">
@@ -53,17 +53,30 @@
              <% @sessions.each do |session| %>
              <div class="card text-center bblue" style="margin: 2px auto; border-radius:0px">
               <div class="card-body">
-                <h5 class="card-title orangetext"><%= session.title %></h5>
+                <h5 class="card-title purpletext"><%= session.title %></h5>
+                <hr>
                 <p class="card-text">
-                  <%= itempills(session.agenda) %> 
+                <ul class="list-group list-group-horizontal-sm session-tags">
+                   <% session.agenda.each do |tag|%>
+                    <li class="list-group-item pillitem">
+                      <a class="pillitem"  href="<%=tag.parameterize.underscore%>"> <%= tag.to_s %></a>             
+                   </li>
+                   <% end %> 
+                </ul>
                 </p>
-                <a href="#" class="btn btn-session dblue">Preview</a>
+                <hr >
+
+               <section class="sbuttons">
+                <a href="#" class="btn btn-session dblue">View</a>
                 <% if isjoinable?(session) %>
-                  
-                  <%= link_to "Join", showdown_path(session.showdown.id), class:"btn btn-sessions cgreen"  %>
+                  <%= link_to "Join", showdown_path(session.showdown.id), class:"btn btn-session cgreen"  %>
                 <% end %>
+                <% if session.users.ids.include?(@u)  %>
+                  <a href="#" class="btn btn-session purple">Edit</a>
+                <% end %>
+               </section>
               </div>
-              <div class="card-footer">
+              <div class="card-footer timing">
                 <%=  futurepast(session.s_time) %>
               </div>
             </div>

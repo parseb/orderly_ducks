@@ -5,7 +5,7 @@ class CreateSessions < ActiveRecord::Migration[6.1]
       t.string :title
       t.datetime :s_time
       t.datetime :e_time
-      t.text :agenda
+      t.text :agenda, array: true, default: []
       t.text :transcript
       t.text :state
       t.string :accesscode, precision: 6
@@ -14,8 +14,7 @@ class CreateSessions < ActiveRecord::Migration[6.1]
       #t.references :user
       t.integer :created_by
       t.integer :moderator
-
-      t.string :invited  #@refact
+      t.string :invited, array: true, default: []
 
       t.timestamps
     end

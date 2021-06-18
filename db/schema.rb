@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_06_17_104854) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "installs", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_104854) do
   end
 
   create_table "peers", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "email"
     t.string "phone"
     t.string "name"
@@ -39,20 +42,20 @@ ActiveRecord::Schema.define(version: 2021_06_17_104854) do
     t.string "title"
     t.datetime "s_time"
     t.datetime "e_time"
-    t.text "agenda"
+    t.text "agenda", default: [], array: true
     t.text "transcript"
     t.text "state"
     t.string "accesscode"
     t.integer "created_by"
     t.integer "moderator"
-    t.string "invited"
+    t.string "invited", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sessions_users", id: false, force: :cascade do |t|
-    t.integer "session_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "session_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "showdowns", force: :cascade do |t|
@@ -63,8 +66,8 @@ ActiveRecord::Schema.define(version: 2021_06_17_104854) do
     t.string "state2"
     t.string "state3"
     t.text "chat"
-    t.integer "session_id", null: false
-    t.text "present"
+    t.bigint "session_id", null: false
+    t.text "presence", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["session_id"], name: "index_showdowns_on_session_id"

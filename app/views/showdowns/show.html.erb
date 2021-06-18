@@ -1,8 +1,35 @@
 <div class="row">
     <div class="col-7">
-        <h6 class="sessiontitle"><%= @session.title %></h6>
+        <h6 class="showdowntitle"><%= @session.title %></h6>
     </div>    
     <div class="col-5">
 
+        <ul>
+            <li> <h6>Moderator:</h6> <%= @moderator.name %>  </li>   
+        </ul>
+    </div> 
+</div>
+<div class="row">   
+    <div class="col-12">
+        <ul class="list-group list-group-horizontal-sm invited-group">
+            <h6 class="listtitle-invited">Invited: </h6>
+            <% @invited.each do |i| %>
+            <li class="list-group-item invited-item"> <%= i.name %></li>
+            <% end %>
+          </ul>
+    </div>
+</div>
+<div class="row"> 
+    
+    <div class="col-12">
+        <ul class="list-group list-group-horizontal-sm present-group">
+            <h6 class="listtitle-present">Present: </h6>
+
+            <% @presence.each do |p| %>
+                <li class="list-group-item present-item border-color:<%= @c %>">
+                    <%= p %>                    
+                </li>
+            <% end %> 
+        </ul>
     </div>
 </div>

@@ -60,7 +60,7 @@ gem 'devise'
 #gem "anycable-rails", "~> 1.1"
 #gem "redis" #remove if not used
 
-
+gem 'pg'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

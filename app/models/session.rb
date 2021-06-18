@@ -3,7 +3,7 @@ class Session < ApplicationRecord
     has_one :showdown
     before_create :doinvitecode
     validates_presence_of :title, :s_time, :e_time
-    around_save :ensure_showdown
+    after_create :ensure_showdown
 
 
 
@@ -17,9 +17,9 @@ class Session < ApplicationRecord
     end
 
     def ensure_showdown
-        Showdown.find_or_create_by(session_id: self.id) do |s|
-            #inherits from session if any
-        end
+        Showdown.find_or_create_by!(session_id: self.id) 
+        #inherits from session if any
+        
      end
 
 end

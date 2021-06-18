@@ -59,8 +59,8 @@
                 </p>
                 <a href="#" class="btn btn-session dblue">Preview</a>
                 <% if isjoinable?(session) %>
-                  <a href="#" class="btn btn-session cgreen">Join</a>
-                  <%= link_to "Join", showdowns_path(session.showddown), class:"btn, btn-sessions cgreen"  %>
+                  
+                  <%= link_to "Join", showdown_path(session.showdown.id), class:"btn btn-sessions cgreen"  %>
                 <% end %>
               </div>
               <div class="card-footer">

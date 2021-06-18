@@ -20,6 +20,9 @@ module Honestly
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.i18n.default_locale = :en 
+
+
+    # config.action_view.form_with_generates_remote_forms = false  #@@refact 
     
   end
 end

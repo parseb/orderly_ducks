@@ -5,7 +5,7 @@ class WorkspaceController < ApplicationController
     def start
         @session= Session.new  
         @u= current_user.id
-        @sessions= current_user.sessions
+        @sessions= current_user.sessions.order(:s_time).reverse
        
     end
 

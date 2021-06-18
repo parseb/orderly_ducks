@@ -17,7 +17,8 @@ module WorkspaceHelper
 
 
     def isjoinable?(session)
-        session.s_time - Time.now < 50000 ? true : false ##@refact - time til join is viable  
+        dif = session.s_time - Time.now 
+          dif > 100   ? true : false ##@refact - time til join is viable  
         
     end
 end

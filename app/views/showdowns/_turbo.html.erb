@@ -1,0 +1,7 @@
+
+<%= turbo_stream_from "showdown-#{params[:id]}"%>
+<%= turbo_frame_tag "showdown-#{params[:id]}" do %>
+
+<%= render "showdown" %>
+
+<% end %>

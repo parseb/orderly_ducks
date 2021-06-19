@@ -25,11 +25,11 @@
         <ul class="list-group list-group-horizontal-sm present-group">
             <h6 class="listtitle-present">Present: </h6>
 
-            <% @presence.each do |p| %>
-                <li class="list-group-item present-item border-color:<%= @c %>">
-                    <%= p %>                    
-                </li>
-            <% end %> 
+<%= turbo_stream_from "showdown-#{params[:id]}"%>
+<%= turbo_frame_tag "showdown-#{params[:id]}" do %>
+     <%=render @showdown%>
+<% end %>
+           
         </ul>
     </div>
 </div>

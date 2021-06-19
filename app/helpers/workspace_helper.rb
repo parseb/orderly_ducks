@@ -19,6 +19,15 @@ module WorkspaceHelper
     def isjoinable?(session)
         dif = session.s_time - Time.now 
           dif > 100   ? true : false ##@refact - time til join is viable  
-        
+    end
+
+    def updatepresence(userid, showdown)
+        if showdown.presence.include?(userid) 
+            p "nothing to update"
+        else
+            showdown.presence << userid 
+            showdown.save!
+            p "presence updated"
+        end 
     end
 end

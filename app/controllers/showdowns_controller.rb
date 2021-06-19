@@ -15,9 +15,10 @@ class ShowdownsController < ApplicationController
     end
 
     def joins
-      @showdown= Showdown.find(params[:id])
-      #@showdonw.presence.append(current_user)
-      @showdonw.save!
+      # @showdown= Showdown.find(params[:id])
+      # @showdown.presence 
+      # #@showdonw.presence.append(current_user)
+      # @showdonw.save!
       
     end
 
@@ -39,7 +40,7 @@ class ShowdownsController < ApplicationController
     def secure_presence
       @showdown= Showdown.find(params[:id])
       @cid= current_user.id
-      @showdown.presence.include?(@cid) ? true : @showdown.presence << @cid
+      @showdown.presence.include?(@cid.to_s) ? true : @showdown.presence << @cid.to_s
       @showdown.save!  
     end
 

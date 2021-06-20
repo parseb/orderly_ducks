@@ -9,7 +9,7 @@ class ShowdownsController < ApplicationController
       @session= @showdown.session
       @moderator= User.find @session.moderator
       @invited= @session.users
-      @showdown.presence=[]
+      #@showdown.presence=[]
       @c=session[:color]
 
     end

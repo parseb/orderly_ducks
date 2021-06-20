@@ -31,7 +31,7 @@
         <ul class="list-group list-group-horizontal-sm present-group">
             <h6 class="listtitle-present">Present: </h6>
             <%= turbo_frame_tag "showdown-#{params[:id]}" do %>
-                <%=render 'presence'%>
+                <%=render 'presence', presence:@presence%>
             <% end %>
         </ul>
     </div>

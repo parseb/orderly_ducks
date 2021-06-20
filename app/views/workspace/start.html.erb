@@ -67,11 +67,12 @@
                 <hr >
 
                <section class="sbuttons">
-                <a href="#" class="btn btn-session dblue">View</a>
+              
+                 <%= link_to "View", session_path(session.id), class:"btn btn-session dblue"  %>
                 <% if isjoinable?(session) %>
                   <%= link_to "Join", showdown_path(session.showdown.id), class:"btn btn-session cgreen"  %>
                 <% end %>
-                <% if session.users.ids.include?(@u)  %>
+                <% if session.users.ids.include?(@u)  %> <!-- #@@refact if createor/moderator-->
                   <a href="#" class="btn btn-session purple">Edit</a>
                 <% end %>
                </section>

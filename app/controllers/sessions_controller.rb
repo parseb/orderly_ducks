@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
     end
 
     def show
-        
+        @session= Session.find(params[:id])
+        @invited= @session.users
     end
 
 

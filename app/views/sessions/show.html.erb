@@ -1,0 +1,44 @@
+<div class="container">
+    <h4><%=  @session.title %> </h4>
+    <div class="row">
+        <div class="col-8">
+            <p>Started at:<%= @session.s_time.strftime("%FT%R") %></p>
+            <p>Ended at:<%= @session.e_time.strftime("%FT%R") %> </p>
+            <h6>Status: <%= @session.state %></h6>
+            <hr>
+            <div class="row">
+                <p class="card-text">
+                <ul class="list-group list-group-horizontal-sm session-tags">
+                   <% @session.agenda.each do |tag|%>
+                    <li class="list-group-item pillitem">
+                      <a class="pillitem"  href="<%=tag.parameterize.underscore%>"> <%= tag.to_s %></a>             
+                   </li>
+                   <% end %> 
+                </ul>
+                <hr>
+                <ul class="list-group list-group-horizontal-sm">
+                    <h6 class="listtitle-invited">Invited: </h6>
+                    <% @invited.each do |i| %>
+                    <li class="list-group-item"> <%= i.name %></li>
+                    <% end %>
+                  </ul>
+                  <hr>
+                </p>   
+                
+                <div class="text text-transcript">
+                    <%= @session.transcript %> 
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <h6>Lifecycle</h6>
+            <hr>
+            <% @session.lifecycle.each do |l| %>
+                <%= l %>
+                <hr>
+            <% end %>
+        </div>
+    </div>
+
+   
+</div> 

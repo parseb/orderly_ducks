@@ -1,5 +1,10 @@
-<% @presence.each do |p| %>
-                <li class="list-group-item present-item border-color:<%= @c %>">
-                    <%= p %>                    
-                </li>
-<% end %> 
+    
+    <div id='showdowns'>
+
+            <% @showdown.presence.each do |p|%>
+                  <li class="list-group-item present-item border-color:<%= @c %>">
+                          <%= p %>       
+                 </li>
+           <% end %>
+
+      </div>

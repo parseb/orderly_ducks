@@ -9,13 +9,13 @@ class ShowdownsController < ApplicationController
       @session= @showdown.session
       @moderator= User.find @session.moderator
       @invited= @session.users
-      
+      @showdown.presence=[]
       @c=session[:color]
 
     end
 
     def joins
-      # @showdown= Showdown.find(params[:id])
+      @showdown= Showdown.find(params[:id])
       # @showdown.presence 
       # #@showdonw.presence.append(current_user)
       # @showdonw.save!

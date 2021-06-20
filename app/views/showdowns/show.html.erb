@@ -1,3 +1,7 @@
+
+               
+            
+    
 <div class="row">
     <div class="col-7">
         <h6 class="showdowntitle"><%= @session.title %></h6>
@@ -19,17 +23,16 @@
           </ul>
     </div>
 </div>
+<%= turbo_stream_from "showdown-#{params[:id]}"%>
+
 <div class="row"> 
     
     <div class="col-12">
         <ul class="list-group list-group-horizontal-sm present-group">
             <h6 class="listtitle-present">Present: </h6>
-
-<%= turbo_stream_from "showdown-#{params[:id]}"%>
-<%= turbo_frame_tag "showdown-#{params[:id]}" do %>
-     <%=render @showdown%>
-<% end %>
-           
+            <%= turbo_frame_tag "showdown-#{params[:id]}" do %>
+                <%=render 'presence'%>
+            <% end %>
         </ul>
     </div>
 </div>

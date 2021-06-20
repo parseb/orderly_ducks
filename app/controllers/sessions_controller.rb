@@ -29,6 +29,22 @@ class SessionsController < ApplicationController
     def destroy
     end
 
+    def addsession
+        @session = Session.where(accesscode: params[:invited][:invited]).first
+        check ||= @session.users.include? current_user 
+        if check 
+            redirect_to workspace_path(current_user.id)
+            flash[:alert]= 'Nothing to do. You already have access to this session.'
+        elsif @session
+            @session.users << current_user
+            @session.save!
+            redirect_to workspace_path(current_user.id)
+            flash[:success] = "Session retrieved. Good job Everyone!"
+        else
+            redirect_to workspace_path(current_user.id)
+            flash[:alert] = "Session Not found"
+        end
+    end
 
     private
     

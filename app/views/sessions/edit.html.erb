@@ -1,0 +1,8 @@
+<% form_for @session, action: "joins", controller: 'session' do |f| %>
+    <div class="field">
+        <%= f.label "Invite Code:", class:"form-label" %>
+        <%= f.input :invite_code, class:"form-control" %>
+    </div>
+                  
+    <%= f.submit "Add Session", class:"btn btn-secondary"%>
+<% end %> 

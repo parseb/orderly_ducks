@@ -1,6 +1,13 @@
 
-               
-            
+<div class="channel" id='showdown-i' data-showdown-i=<%= "#{@sid}" %> >
+
+</div>     
+            <script>
+                console.log("aaaaa")
+  const id_element = document.getElementById("showdown-i")
+  const sid = id_element.getAttribute("data-showdown-i")
+
+            </script>
     
 <div class="row">
     <div class="col-7">
@@ -23,16 +30,23 @@
           </ul>
     </div>
 </div>
-<%= turbo_stream_from "showdown-#{params[:id]}"%>
+
 
 <div class="row"> 
     
     <div class="col-12">
-        <ul class="list-group list-group-horizontal-sm present-group">
+     
+        <ul class="list-group list-group-horizontal-sm present-group" >
             <h6 class="listtitle-present">Present: </h6>
-            <%= turbo_frame_tag "showdown-#{params[:id]}" do %>
-                <%=render 'presence', presence:@presence%>
-            <% end %>
+            <div id="showdowns">
+                <% @presence.each do |p|%>
+                    <li class="list-group-item present-item border-color:<%= @c %>" id= <%= p.parameterize %> >
+                        <%= p %>       
+                    </li>
+                <%end%>
+       
+            </div>
+            
         </ul>
     </div>
 </div>

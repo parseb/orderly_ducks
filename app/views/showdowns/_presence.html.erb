@@ -1,10 +1,10 @@
     
-    <div id='showdowns'>
-
+    <div id='showdowns_<%= params[:id]%>'>
+    
             <% @showdown.presence.each do |p|%>
                   <li class="list-group-item present-item border-color:<%= @c %>">
                           <%= p %>       
                  </li>
            <% end %>
-
+      
       </div>

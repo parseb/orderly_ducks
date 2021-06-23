@@ -1,30 +1,33 @@
 class ShowdownsController < ApplicationController
-  before_action :authenticate_user!, :ensure_invited, :secure_presence
+  before_action :authenticate_user!, :present
+
 
 
     def show
-      
-      pids= @showdown.presence
-      @presence= User.where(id:pids).map {|user| user.name }
       @session= @showdown.session
       @moderator= User.find @session.moderator
       @invited= @session.users
-      #@showdown.presence=[]
       @c=session[:color]
-
-    end
-
-    def joins
-      @showdown= Showdown.find(params[:id])
-      # @showdown.presence 
-      # #@showdonw.presence.append(current_user)
-      # @showdonw.save!
+      @presence= @showdown.presence 
+      @sid=params[:id]  ##@refact Authorization channel hopping
+     
       
     end
 
+    def joins
+      @showdown.presence.append(current_user.name)
+      @showdown.presence.uniq! 
+      @showdown.save!
+      redirect_to showdown_path(@showdown)
+    end
 
 
 
+    def present
+      @showdown= Showdown.find(params[:id])
+      
+      
+    end
 
   private
 
@@ -36,16 +39,4 @@ class ShowdownsController < ApplicationController
           notice: "Found the Log In form for you." 
       end
   end
-    
-    def secure_presence
-      @showdown= Showdown.find(params[:id])
-      @cid= current_user.id
-      @showdown.presence.include?(@cid.to_s) ? true : @showdown.presence << @cid.to_s
-      @showdown.save!  
-    end
-
-    def ensure_invited
-
-    end
-
 end

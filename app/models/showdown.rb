@@ -1,21 +1,25 @@
 class Showdown < ApplicationRecord 
   belongs_to :session 
   
-   #after_update_commit { broadcast_replace_to 'cryptoquotes' }
-
-  #  after_update_commit :updateview
+ # after_update_commit :showdownbroadcast
+  before_update :showdownbroadcast
+ # after_commit :showdownbroadcast
  # after_save :showdownbroadcast
   #before_update :presence
   #broadcasts_to -> (showdown) {'showdowns'}
   #after_update_commit -> (presence) {broadcast_append_to: :showdonws, partial: '/partials/presentlist'}
 
   def showdownbroadcast
-    broadcast_to "showdown_channel_#{self.id}"
+    showdownid = self.id
+    ActionCable.server.broadcast "showdown_#{showdownid}", {message: self}
   end
 
+
+
+
   def updateview
-    showdownid = self.id
-    broadcast_replace_to "showdown-#{showdownid}"
+    
+    broadcast_replace_to "showdown-#{showdownid}" 
   end
   
   def uniq_presence

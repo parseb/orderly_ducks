@@ -7,6 +7,16 @@
                 <h6 style="color:goldenrod; font-weight: bold;">Create Session</h6>
 
               <%= form_for @session, url:sessions_path, action:'post'  do |f|%>
+               <% if @session.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+                    <ul>
+                      <% message.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                      <% end %>
+                            </ul>
+                  </div>
+                <% end %>
                   <div class="field" style="margin: 1%;">
                     <%= f.label :title, class:"form-label", style:"color:dodgerblue" %><br />
                     <%= f.text_field :title, autofocus: true, class:"form-control" %>

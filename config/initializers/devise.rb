@@ -313,22 +313,22 @@ Devise.setup do |config|
   config.navigational_formats = ['*/*', :html, :turbo_stream] #@@refact
   
 
-  class TurboFailureApp < Devise::FailureApp
-    def respond
-      if request_format == :turbo_stream
-        redirect
-      else
-        super
-      end
-    end
+  # class TurboFailureApp < Devise::FailureApp
+  #   def respond
+  #     if request_format == :turbo_stream
+  #       redirect
+  #     else
+  #       super
+  #     end
+  #   end
   
-    def skip_format?
-      %w[html turbo_stream */*].include? request_format.to_s
-    end
-  end
+  #   def skip_format?
+  #     %w[html turbo_stream */*].include? request_format.to_s
+  #   end
+  # end
 
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
-  end
+  # config.warden do |manager|
+  #   manager.failure_app = TurboFailureApp
+  # end
 
 end

@@ -38,14 +38,18 @@
      
         <ul class="list-group list-group-horizontal-sm present-group" >
             <h6 class="listtitle-present">Present: </h6>
-            <div id="showdowns">
-                <% @presence.each do |p|%>
+            
+                
+       <div data-controller="showdown" data-presence=<%= "#{@sid}"%> >
+        <% @presence.each do |p|%>
+            <div data-showdown-presence-target='user'>
                     <li class="list-group-item present-item border-color:<%= @c %>" id= <%= p.parameterize %> >
                         <%= p %>       
                     </li>
                 <%end%>
-       
             </div>
+        </div>
+    </div>
             
         </ul>
     </div>

@@ -4,21 +4,24 @@ class ShowdownsController < ApplicationController
 
 
     def show
+      
       @session= @showdown.session
       @moderator= User.find @session.moderator
       @invited= @session.users
       @c=session[:color]
-      @presence= @showdown.presence 
-      @sid=params[:id]  ##@refact Authorization channel hopping
+      @presence= @showdown.presence.uniq
+      @sid=params[:id] 
+      ##@refact Authorization channel hopping
      
       
     end
 
     def joins
-      @showdown.presence.append(current_user.name)
+      @showdown.presence.append([current_user.name, current_user.id])
       @showdown.presence.uniq! 
       @showdown.save!
       redirect_to showdown_path(@showdown)
+      
     end
 
 

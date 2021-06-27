@@ -2,8 +2,8 @@ class Showdown < ApplicationRecord
   belongs_to :session 
   
  # after_update_commit :showdownbroadcast
-  before_update :showdownbroadcast
- # after_commit :showdownbroadcast
+ # before_update :showdownbroadcast
+  after_commit :showdownbroadcast
  # after_save :showdownbroadcast
   #before_update :presence
   #broadcasts_to -> (showdown) {'showdowns'}
@@ -11,7 +11,10 @@ class Showdown < ApplicationRecord
 
   def showdownbroadcast
     showdownid = self.id
-    ActionCable.server.broadcast "showdown_#{showdownid}", {message: self}
+    ActionCable.server.broadcast "showdown_#{showdownid}", {data: {q: self.q, 
+                                                            presence: self.presence.uniq, 
+                                                            temp_transcript: self.temp_transcript, 
+                                                          }}
   end
 
 
